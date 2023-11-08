@@ -20,3 +20,5 @@ Suggests:
 Remotes:
     ropensci/git2r
 Config/testthat/edition: 3
+URL: https://github.com/noamross/gitty
+BugReports: https://github.com/noamross/gitty/issues
