@@ -8,8 +8,12 @@
 [![Project Status:
 Concept](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 [![R-CMD-check](https://github.com/noamross/gitty/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/noamross/gitty/actions/workflows/R-CMD-check.yaml)
-![Gitty on R-Universe](https://noamross.r-universe.dev/badges/gitty)
 [![codecov](https://codecov.io/gh/noamross/gitty/branch/main/graph/badge.svg)](https://codecov.io/gh/noamross/gitty)
+[![pkgcheck](https://github.com/noamross/gitty/workflows/pkgcheck/badge.svg)](https://github.com/noamross/gitty/actions?query=workflow%3Apkgcheck)
+[![Gitty on
+R-Universe](https://noamross.r-universe.dev/badges/gitty)](https://noamross.r-universe.dev/gitty)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gitty)](https://CRAN.R-project.org/package=gitty)
 
 <!-- badges: end -->
 
