@@ -44,6 +44,26 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
+     #install minio client and server, differently for each operating system
+      - name: Install Minio Server and Client on Windows
+        if: runner.os == 'Windows'
+        run: |
+          choco install minio-server minio-client
+      - name: Install Minio Server and Client on MacOS
+        if: runner.os == 'macOS'
+        run: |
+          brew install minio minio-mc
+      - name: Install Minio Server and Client on Ubuntu
+        if: matrix.config.os == 'ubuntu-latest'
+        run: |
+          wget https://dl.min.io/server/minio/release/linux-amd64/minio
+          chmod +x minio
+          sudo mv minio /usr/local/bin
+          wget https://dl.min.io/client/mc/release/linux-amd64/mc
+          chmod +x mc
+          sudo mv mc /usr/local/bin
+
+
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
