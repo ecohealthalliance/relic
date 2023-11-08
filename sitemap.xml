@@ -28,6 +28,18 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/copy_git_obj.html</loc>
+  </url>
+  <url>
+    <loc>/reference/copy_git_tree.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tar_load_version.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tar_tempdir.html</loc>
   </url>
 </urlset>
