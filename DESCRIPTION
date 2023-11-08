@@ -19,11 +19,14 @@ Suggests:
     rmarkdown,
     targets,
     testthat (>= 3.0.0),
-    devtag
+    devtag,
+    pkgcheck,
+    lintr
 Remotes:
     ropensci/git2r
     moodymudskipper/devtag
+    ropensci-review-tools/pkgcheck
 Config/testthat/edition: 3
-URL: https://github.com/noamross/gitty
+URL: https://noamross.github.io/gitty, https://noamross.r-universe.dev/gitty
 BugReports: https://github.com/noamross/gitty/issues
 VignetteBuilder: knitr
