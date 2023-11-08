@@ -17,9 +17,11 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Project Status: Concept](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
-[![CRAN status](https://www.r-pkg.org/badges/version/gitty)](https://CRAN.R-project.org/package=gitty)
 [![R-CMD-check](https://github.com/noamross/gitty/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/noamross/gitty/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/noamross/gitty/branch/main/graph/badge.svg)](https://codecov.io/gh/noamross/gitty)
+![Gitty on R-Universe](https://noamross.r-universe.dev/badges/gitty)
+[![CRAN status](https://www.r-pkg.org/badges/version/gitty)](https://CRAN.R-project.org/package=gitty)
+
 
 <!-- badges: end -->
 
@@ -29,7 +31,7 @@ The goal of gitty is to ...
 
 You can install the development version of gitty like so:
 
-``` r
+```r
 install.packages("gitty", repos = c("https://noamross.r-universe.dev"))
 ```
 
@@ -38,7 +40,7 @@ install.packages("gitty", repos = c("https://noamross.r-universe.dev"))
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(gitty)
+#library(gitty)
 ## basic example code
 ```
 
