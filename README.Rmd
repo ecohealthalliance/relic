@@ -16,6 +16,11 @@ knitr::opts_chunk$set(
 # gitty
 
 <!-- badges: start -->
+[![Project Status: Concept](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+[![CRAN status](https://www.r-pkg.org/badges/version/gitty)](https://CRAN.R-project.org/package=gitty)
+[![R-CMD-check](https://github.com/noamross/gitty/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/noamross/gitty/actions/workflows/R-CMD-check.yaml)
+[![codecov](https://codecov.io/gh/noamross/gitty/branch/main/graph/badge.svg)](https://codecov.io/gh/noamross/gitty)
+
 <!-- badges: end -->
 
 The goal of gitty is to ...
@@ -25,7 +30,7 @@ The goal of gitty is to ...
 You can install the development version of gitty like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+install.packages("gitty", repos = c("https://noamross.r-universe.dev"))
 ```
 
 ## Example
@@ -52,3 +57,8 @@ plot(pressure)
 ```
 
 In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+
+## Code of Conduct
+  
+Please note that the gitty project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+[Copied to clipboard]
