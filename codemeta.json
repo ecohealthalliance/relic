@@ -1,11 +1,12 @@
 {
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
-  "identifier": "gitty",
-  "description": "Tools for working with version-controlled data science workflows",
-  "name": "gitty: Tools for working with version-controlled data science workflows",
-  "codeRepository": "https://github.com/noamross/gitty",
-  "issueTracker": "https://github.com/noamross/gitty/issues",
+  "identifier": "relic",
+  "description": "Tools working with the history of version-controlled projects, ",
+  "name": "relic: Objects from History",
+  "relatedLink": "https://noamross.r-universe.dev/relic",
+  "codeRepository": "https://noamross.github.io/relic",
+  "issueTracker": "https://github.com/noamross/relic/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.0.9000",
   "programmingLanguage": {
@@ -14,24 +15,6 @@
     "url": "https://r-project.org"
   },
   "runtimePlatform": "R version 4.3.1 (2023-06-16)",
-  "author": [
-    {
-      "@type": "Person",
-      "givenName": "Noam",
-      "familyName": "Ross",
-      "email": "ross@ecohealthalliance.org",
-      "@id": "https://orcid.org/0000-0002-2136-0000"
-    }
-  ],
-  "maintainer": [
-    {
-      "@type": "Person",
-      "givenName": "Noam",
-      "familyName": "Ross",
-      "email": "ross@ecohealthalliance.org",
-      "@id": "https://orcid.org/0000-0002-2136-0000"
-    }
-  ],
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
@@ -44,6 +27,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=igraph"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     },
     {
       "@type": "SoftwareApplication",
@@ -69,6 +76,95 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "devtag",
+      "name": "devtag",
+      "sameAs": "https://github.com/moodymudskipper/devtag"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "pkgcheck",
+      "name": "pkgcheck",
+      "sameAs": "https://github.com/ropensci-review-tools/pkgcheck"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "lintr",
+      "name": "lintr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=lintr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "processx",
+      "name": "processx",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=processx"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "paws",
+      "name": "paws",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=paws"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "httr",
+      "name": "httr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "autotest",
+      "name": "autotest"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "callr",
+      "name": "callr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=callr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "spelling",
+      "name": "spelling",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=spelling"
     }
   ],
   "softwareRequirements": {
@@ -98,5 +194,20 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "4.793KB"
+  "fileSize": "104.273KB",
+  "citation": [
+    {
+      "@type": "SoftwareSourceCode",
+      "datePublished": "2024",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Noam",
+          "familyName": "Ross"
+        }
+      ],
+      "name": "relic: Tools for working with version-controlled data science workflows",
+      "url": "https://github.com/noamross/relic"
+    }
+  ]
 }

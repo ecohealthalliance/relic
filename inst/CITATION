@@ -1,11 +1,10 @@
+citHeader("To cite relic in publications use:")
+
 bibentry(
-  bibtype  = "Article",
-  title    = ,
-  author   = ,
-  journal  = ,
-  year     = ,
-  volume   = ,
-  number   = ,
-  pages    = ,
-  doi      =
+  bibtype = "Manual",
+  title = "relic: Tools for working with version-controlled data science workflows",
+  year = "2024",
+  author = "Noam Ross",
+  edition = "0.1.0",
+  url = "https://github.com/noamross/relic"
 )

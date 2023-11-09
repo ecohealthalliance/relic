@@ -1,13 +1,15 @@
-Package: gitty
-Title: Tools for working with version-controlled data science workflows
+Package: relic
+Title: Objects from History
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R: c(
     person("Noam", "Ross", , "ross@ecohealthalliance.org", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-2136-0000"))
-Description: Tools for working with version-controlled data science workflows
+           comment = c(ORCID = "0000-0002-2136-0000")),
+    person("EcoHealth Alliance", role = c("cph", "fnd"))
+    )
+Description: Tools working with the history of version-controlled projects, 
 License: MIT + file LICENSE
 Encoding: UTF-8
-Language: es
+Language: en-US
 Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
 RoxygenNote: 7.2.3
 Imports: 
@@ -21,12 +23,18 @@ Suggests:
     testthat (>= 3.0.0),
     devtag,
     pkgcheck,
-    lintr
+    lintr,
+    processx,
+    paws,
+    httr,
+    autotest,
+    callr,
+    spelling
 Remotes:
-    ropensci/git2r
-    moodymudskipper/devtag
+    ropensci/git2r,
+    moodymudskipper/devtag,
     ropensci-review-tools/pkgcheck
 Config/testthat/edition: 3
-URL: https://noamross.github.io/gitty, https://noamross.r-universe.dev/gitty
-BugReports: https://github.com/noamross/gitty/issues
+URL: https://noamross.github.io/relic, https://noamross.r-universe.dev/relic
+BugReports: https://github.com/noamross/relic/issues
 VignetteBuilder: knitr

@@ -1,6 +1,9 @@
-^gitty\.Rproj$
+^relic\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^\.github$
 ^CODE_OF_CONDUCT\.md$
 ^LICENSE\.md$
+^man/install_minio\.Rd$
+^man/sys_tempdir\.Rd$
+^man/sys_tempfile\.Rd$
