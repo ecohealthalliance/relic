@@ -35,6 +35,6 @@ Remotes:
     moodymudskipper/devtag,
     ropensci-review-tools/pkgcheck
 Config/testthat/edition: 3
-URL: https://noamross.github.io/relic, https://noamross.r-universe.dev/relic
-BugReports: https://github.com/noamross/relic/issues
+URL: https://ecohealthalliance.github.io/relic, https://ecohealthalliance.r-universe.dev/relic
+BugReports: https://github.com/ecohealthalliance/relic/issues
 VignetteBuilder: knitr

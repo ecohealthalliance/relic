@@ -17,10 +17,10 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Project Status: Concept](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
-[![R-CMD-check](https://github.com/noamross/relic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/noamross/relic/actions/workflows/R-CMD-check.yaml)
-[![pkgcheck](https://github.com/noamross/relic/workflows/pkgcheck/badge.svg)](https://github.com/noamross/relic/actions?query=workflow%3Apkgcheck)
-[![codecov](https://codecov.io/gh/noamross/relic/branch/main/graph/badge.svg)](https://codecov.io/gh/noamross/relic)
-[![relic on R-Universe](https://noamross.r-universe.dev/badges/relic)](https://noamross.r-universe.dev/relic)
+[![R-CMD-check](https://github.com/ecohealthalliance/relic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ecohealthalliance/relic/actions/workflows/R-CMD-check.yaml)
+[![pkgcheck](https://github.com/ecohealthalliance/relic/workflows/pkgcheck/badge.svg)](https://github.com/ecohealthalliance/relic/actions?query=workflow%3Apkgcheck)
+[![codecov](https://codecov.io/gh/ecohealthalliance/relic/branch/main/graph/badge.svg)](https://codecov.io/gh/ecohealthalliance/relic)
+[![relic on R-Universe](https://ecohealthalliance.r-universe.dev/badges/relic)](https://ecohealthalliance.r-universe.dev/relic)
 [![CRAN status](https://www.r-pkg.org/badges/version/relic)](https://CRAN.R-project.org/package=relic)
 <!-- badges: end -->
 
@@ -33,7 +33,7 @@ project. It enables extracting and comparing files and objects from project hist
 You can install the development version of `relic` like so:
 
 ```r
-install.packages("relic", repos = c("https://noamross.r-universe.dev"))
+install.packages("relic", repos = c("https://ecohealthalliance.r-universe.dev"))
 ```
 
 

@@ -4,9 +4,9 @@
   "identifier": "relic",
   "description": "Tools working with the history of version-controlled projects, ",
   "name": "relic: Objects from History",
-  "relatedLink": "https://noamross.r-universe.dev/relic",
-  "codeRepository": "https://noamross.github.io/relic",
-  "issueTracker": "https://github.com/noamross/relic/issues",
+  "relatedLink": "https://ecohealthalliance.r-universe.dev/relic",
+  "codeRepository": "https://ecohealthalliance.github.io/relic",
+  "issueTracker": "https://github.com/ecohealthalliance/relic/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.0.9000",
   "programmingLanguage": {
@@ -207,7 +207,7 @@
         }
       ],
       "name": "relic: Tools for working with version-controlled data science workflows",
-      "url": "https://github.com/noamross/relic"
+      "url": "https://github.com/ecohealthalliance/relic"
     }
   ]
 }
