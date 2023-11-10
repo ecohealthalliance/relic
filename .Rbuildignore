@@ -4,6 +4,11 @@
 ^\.github$
 ^CODE_OF_CONDUCT\.md$
 ^LICENSE\.md$
+^man/commits_range\.Rd$
+^man/blob_to_file\.Rd$
 ^man/install_minio\.Rd$
 ^man/sys_tempdir\.Rd$
 ^man/sys_tempfile\.Rd$
+^man/as_repo\.Rd$
+^man/as_commit\.Rd$
+^CITATION\.cff$

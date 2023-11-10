@@ -8,13 +8,43 @@
   "codeRepository": "https://ecohealthalliance.github.io/relic",
   "issueTracker": "https://github.com/ecohealthalliance/relic/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.0.9000",
+  "version": "0.1.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
   "runtimePlatform": "R version 4.3.1 (2023-06-16)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Noam",
+      "familyName": "Ross",
+      "email": "ross@ecohealthalliance.org",
+      "@id": "https://orcid.org/0000-0002-2136-0000"
+    }
+  ],
+  "copyrightHolder": [
+    {
+      "@type": "Organization",
+      "name": "EcoHealth Alliance"
+    }
+  ],
+  "funder": [
+    {
+      "@type": "Organization",
+      "name": "EcoHealth Alliance"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Noam",
+      "familyName": "Ross",
+      "email": "ross@ecohealthalliance.org",
+      "@id": "https://orcid.org/0000-0002-2136-0000"
+    }
+  ],
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
@@ -170,18 +200,6 @@
   "softwareRequirements": {
     "1": {
       "@type": "SoftwareApplication",
-      "identifier": "fs",
-      "name": "fs",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=fs"
-    },
-    "2": {
-      "@type": "SoftwareApplication",
       "identifier": "git2r",
       "name": "git2r",
       "provider": {
@@ -192,9 +210,33 @@
       },
       "sameAs": "https://github.com/ropensci/git2r"
     },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "fs",
+      "name": "fs",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=fs"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "rlang",
+      "name": "rlang",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rlang"
+    },
     "SystemRequirements": null
   },
-  "fileSize": "104.273KB",
+  "fileSize": "643.785KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

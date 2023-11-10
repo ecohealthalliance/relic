@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(gitty)
+library(relic)
 
-test_check("gitty")
+test_check("relic")

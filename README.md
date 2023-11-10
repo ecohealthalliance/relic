@@ -1,12 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# relic: objects from history
+# relic: objects from history <img src="man/figures/logo.png" align="right" height="206" alt="" />
 
 <!-- badges: start -->
 
-[![Project Status:
-Concept](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/ecohealthalliance/relic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ecohealthalliance/relic/actions/workflows/R-CMD-check.yaml)
 [![pkgcheck](https://github.com/ecohealthalliance/relic/workflows/pkgcheck/badge.svg)](https://github.com/ecohealthalliance/relic/actions?query=workflow%3Apkgcheck)
 [![codecov](https://codecov.io/gh/ecohealthalliance/relic/branch/main/graph/badge.svg)](https://codecov.io/gh/ecohealthalliance/relic)
@@ -16,10 +16,26 @@ R-Universe](https://ecohealthalliance.r-universe.dev/badges/relic)](https://ecoh
 status](https://www.r-pkg.org/badges/version/relic)](https://CRAN.R-project.org/package=relic)
 <!-- badges: end -->
 
+> *And deeper than oblivion we do bury* <br /> *The incensing relics of
+> it* <br /> William Shakespeare, [All’s Well That Ends Well
+> V.3](https://internetshakespeare.uvic.ca/doc/AWW_M/scene/5.3/index.html)
+
 The `relic` package provides tools for working with version-controlled
-workflows, primarily git repositories and
-[`targets`](https://books.ropensci.org/targets-manual) project. It
-enables extracting and comparing files and objects from project history.
+workflows, in git repositories. It enables extracting and comparing
+files and objects from project history. You can use `relic` for tasks
+such as
+
+- Pulling a file from a previous version of your code
+- Creating a report (or a GIF!) that shows the evolution of a model
+  object or output over the course of repository development
+- Run code repeatedly at many points along repository history to compare
+  outputs or performance.
+
+`relic` has specific functionality for working with
+[`targets`](https://books.ropensci.org/targets-manual) projects. It
+works especially well when used in conjunction with [cloud-based,
+versioned object
+storage](https://books.ropensci.org/targets/cloud-storage.html).
 
 ## Installation
 
@@ -31,20 +47,22 @@ install.packages("relic", repos = c("https://ecohealthalliance.r-universe.dev"))
 
 ## Related work
 
-- [git2r](https://github.com/ropensci/git2r) is a low-level R interface
-  to git, and is used by relic.
-- [gert](https://github.com/r-lib/gert) is an alternative, higher-level
-  R interface to git especially suited to performing and automating git
-  operations.
-- [gittargets](https://github.com/ropensci/gittargets) is an R package
-  for versioning objects in the `targets` framework using git.
-- [git2rdata](https://github.com/ropensci/git2rdata/) is an R package
+- [`git2r`](https://github.com/ropensci/git2r) is a low-level R
+  interface to git, and is used by `relic`.
+- [`gert`](https://github.com/r-lib/gert) is an alternative,
+  higher-level R interface to git especially suited to performing and
+  automating git operations.
+- [`gittargets`](https://github.com/ropensci/gittargets) is an R package
+  for versioning objects in the `targets` framework by placing binary
+  objects in a separate git or Git LFS repository.
+- [`git2rdata`](https://github.com/ropensci/git2rdata/) is an R package
   for organizing tabular data to store in git repositories.
-- [git2net](https://github.com/gotec/git2net) is a Python package that
+- [`git2net`](https://github.com/gotec/git2net) is a Python package that
   facilitates network analysis of git repositories.
-- [bisectr](https://github.com/wch/bisectr) is an R package for running
-  `git bisect` to find commits that introduced bugs in project history.
-- [dolt](https:://dolthub.com) is a relational database with git-like
+- [`bisectr`](https://github.com/wch/bisectr) is an R package for
+  running `git bisect` to find commits that introduced bugs in project
+  history.
+- [`dolt`](https:://dolthub.com) is a relational database with git-like
   versioning and [doltr](https:://github.com/ecohealthalliance/doltr) is
   an R interface to it.
 

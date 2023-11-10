@@ -1,0 +1,324 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.5.0
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "relic" in publications use:'
+type: software
+license: MIT
+title: 'relic: Objects from History'
+version: 0.1.0.9000
+abstract: Tools working with the history of version-controlled projects,
+authors:
+- family-names: Ross
+  given-names: Noam
+  email: ross@ecohealthalliance.org
+  orcid: https://orcid.org/0000-0002-2136-0000
+preferred-citation:
+  type: manual
+  title: 'relic: Tools for working with version-controlled data science workflows'
+  authors:
+  - family-names: Ross
+    given-names: Noam
+    email: ross@ecohealthalliance.org
+    orcid: https://orcid.org/0000-0002-2136-0000
+  year: '2024'
+  edition: 0.1.0
+  url: https://github.com/ecohealthalliance/relic
+repository-code: https://github.com/ecohealthalliance/relic
+url: https://ecohealthalliance.github.io/relic
+contact:
+- family-names: Ross
+  given-names: Noam
+  email: ross@ecohealthalliance.org
+  orcid: https://orcid.org/0000-0002-2136-0000
+references:
+- type: software
+  title: git2r
+  abstract: 'git2r: Provides Access to Git Repositories'
+  notes: Imports
+  url: https://docs.ropensci.org/git2r/
+  repository: https://ropensci.r-universe.dev
+  authors:
+  - family-names: file.
+    given-names: See AUTHORS
+  year: '2023'
+- type: software
+  title: fs
+  abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
+  notes: Imports
+  url: https://fs.r-lib.org
+  repository: https://CRAN.R-project.org/package=fs
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  year: '2023'
+- type: software
+  title: rlang
+  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
+  notes: Imports
+  url: https://rlang.r-lib.org
+  repository: https://CRAN.R-project.org/package=rlang
+  authors:
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2023'
+- type: software
+  title: igraph
+  abstract: 'igraph: Network Analysis and Visualization'
+  notes: Suggests
+  url: https://r.igraph.org/
+  repository: https://CRAN.R-project.org/package=igraph
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+    orcid: https://orcid.org/0000-0001-7098-9676
+  - family-names: Nepusz
+    given-names: Tamás
+    email: ntamas@gmail.com
+    orcid: https://orcid.org/0000-0002-1451-338X
+  - family-names: Traag
+    given-names: Vincent
+    orcid: https://orcid.org/0000-0003-3170-3879
+  - family-names: Horvát
+    given-names: Szabolcs
+    email: szhorvat@gmail.com
+    orcid: https://orcid.org/0000-0002-3100-523X
+  - family-names: Zanini
+    given-names: Fabio
+    email: fabio.zanini@unsw.edu.au
+    orcid: https://orcid.org/0000-0001-7097-8539
+  - family-names: Noom
+    given-names: Daniel
+  - family-names: Müller
+    given-names: Kirill
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
+  year: '2023'
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2023'
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@posit.co
+  - family-names: Luraschi
+    given-names: Javier
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@posit.co
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@posit.co
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2023'
+- type: software
+  title: targets
+  abstract: 'targets: Dynamic Function-Oriented ''Make''-Like Declarative Pipelines'
+  notes: Suggests
+  url: https://docs.ropensci.org/targets/
+  repository: https://ropensci.r-universe.dev
+  authors:
+  - family-names: Landau
+    given-names: William Michael
+    email: will.landau.oss@gmail.com
+    orcid: https://orcid.org/0000-0003-1878-3253
+  year: '2023'
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2023'
+  version: '>= 3.0.0'
+- type: software
+  title: devtag
+  abstract: 'devtag: Restrict Help Files to Development'
+  notes: Suggests
+  url: https://github.com/moodymudskipper/devtag
+  authors:
+  - family-names: Fabri
+    given-names: Antoine
+    email: antoine.fabri@example.com
+  year: '2023'
+- type: software
+  title: pkgcheck
+  abstract: 'pkgcheck: rOpenSci Package Checks'
+  notes: Suggests
+  url: https://docs.ropensci.org/pkgcheck/
+  repository: https://ropensci-review-tools.r-universe.dev
+  authors:
+  - family-names: Padgham
+    given-names: Mark
+    email: mark.padgham@email.com
+    orcid: https://orcid.org/0000-0003-2172-5265
+  - family-names: Salmon
+    given-names: Maëlle
+  - family-names: Wujciak-Jens
+    given-names: Jacob
+    email: jacob@wujciak.de
+    orcid: https://orcid.org/0000-0002-7281-3989
+  year: '2023'
+- type: software
+  title: lintr
+  abstract: 'lintr: A ''Linter'' for R Code'
+  notes: Suggests
+  url: https://lintr.r-lib.org
+  repository: https://CRAN.R-project.org/package=lintr
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    email: james.f.hester@gmail.com
+  - family-names: Angly
+    given-names: Florent
+  - family-names: Hyde
+    given-names: Russ
+  - family-names: Chirico
+    given-names: Michael
+  - family-names: Ren
+    given-names: Kun
+  - family-names: Rosenstock
+    given-names: Alexander
+  - family-names: Patil
+    given-names: Indrajeet
+    email: patilindrajeet.science@gmail.com
+    orcid: https://orcid.org/0000-0003-1995-6531
+  year: '2023'
+- type: software
+  title: processx
+  abstract: 'processx: Execute and Control System Processes'
+  notes: Suggests
+  url: https://processx.r-lib.org
+  repository: https://CRAN.R-project.org/package=processx
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+    orcid: https://orcid.org/0000-0001-7098-9676
+  - family-names: Chang
+    given-names: Winston
+  year: '2023'
+- type: software
+  title: paws
+  abstract: 'paws: Amazon Web Services Software Development Kit'
+  notes: Suggests
+  url: https://github.com/paws-r/paws
+  repository: https://CRAN.R-project.org/package=paws
+  authors:
+  - family-names: Kretch
+    given-names: David
+    email: david.kretch@gmail.com
+  - family-names: Banker
+    given-names: Adam
+    email: adam.banker39@gmail.com
+  year: '2023'
+- type: software
+  title: httr
+  abstract: 'httr: Tools for Working with URLs and HTTP'
+  notes: Suggests
+  url: https://httr.r-lib.org/
+  repository: https://CRAN.R-project.org/package=httr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2023'
+- type: software
+  title: autotest
+  abstract: 'autotest: Automatic Package Testing'
+  notes: Suggests
+  url: https://docs.ropensci.org/autotest/
+  repository: https://ropensci-review-tools.r-universe.dev
+  authors:
+  - family-names: Padgham
+    given-names: Mark
+    email: mark.padgham@email.com
+    orcid: https://orcid.org/0000-0003-2172-5265
+  year: '2023'
+- type: software
+  title: callr
+  abstract: 'callr: Call R from R'
+  notes: Suggests
+  url: https://callr.r-lib.org
+  repository: https://CRAN.R-project.org/package=callr
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+    orcid: https://orcid.org/0000-0001-7098-9676
+  - family-names: Chang
+    given-names: Winston
+  year: '2023'
+- type: software
+  title: spelling
+  abstract: 'spelling: Tools for Spell Checking in R'
+  notes: Suggests
+  url: https://docs.ropensci.org/spelling/
+  repository: https://CRAN.R-project.org/package=spelling
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroen@berkeley.edu
+    orcid: https://orcid.org/0000-0002-4035-0289
+  - family-names: Hester
+    given-names: Jim
+    email: james.hester@rstudio.com
+  year: '2023'
+identifiers:
+- type: url
+  value: https://ecohealthalliance.r-universe.dev/relic

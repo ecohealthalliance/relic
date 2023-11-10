@@ -1,6 +1,6 @@
 Package: relic
 Title: Objects from History
-Version: 0.0.0.9000
+Version: 0.1.0.9000
 Authors@R: c(
     person("Noam", "Ross", , "ross@ecohealthalliance.org", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-2136-0000")),
@@ -13,8 +13,9 @@ Language: en-US
 Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
 RoxygenNote: 7.2.3
 Imports: 
+    git2r,
     fs,
-    git2r
+    rlang
 Suggests: 
     igraph,
     knitr,

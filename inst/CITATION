@@ -6,5 +6,5 @@ bibentry(
   year = "2024",
   author = "Noam Ross",
   edition = "0.1.0",
-  url = "https://github.com/noamross/relic"
+  url = "https://github.com/ecohealthalliance/relic"
 )
