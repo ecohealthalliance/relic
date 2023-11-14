@@ -38,6 +38,7 @@ Remotes:
     cboettig/minioclient#14,
     ropensci-review-tools/pkgcheck,
     ropensci/git2r
+    moodymudskipper/devtag
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
