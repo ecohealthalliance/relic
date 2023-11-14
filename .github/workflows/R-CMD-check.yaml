@@ -12,7 +12,6 @@ on:
         type: boolean
         required: true
         default: false
-
 name: R-CMD-check
 
 concurrency:
@@ -37,15 +36,15 @@ jobs:
           use-public-rspm: true
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::sessioninfo, any::rcmdcheck, any::pkgdepends, any::covr
+          extra-packages: any::sessioninfo, any::rcmdcheck, any::pkgdepends, any::covr, ropensci-review-tools/pkgcheck
           needs: check
-          cache: ${{ !env.ACT }}
       - name: Run just package tests and record test coverage
         run: |
           cat("LOGNAME=", Sys.info()[["user"]], "\n", sep = "", file = Sys.getenv("GITHUB_ENV"), append = TRUE)
           cat("check-dir-path=", file.path(getwd(), ("check")), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
-          coverage <- covr::package_coverage(code = "saveRDS(testthat::test_package('relic', reporter = 'Summary'), file.path('check', 'coverage.rds'))", install_path = "check")
+          coverage <- covr::package_coverage(code = "saveRDS(testthat::capture_output(testthat::test_package('relic', reporter = 'Progress')), file.path('check', 'test_results.rds'))", install_path = "check", clean=FALSE)
           saveRDS(coverage, file.path("check", "coverage.rds"))
+          cat(readRDS(file.path('check', 'test_results.rds')))
         shell: Rscript {0}
       - name: Run R-CMD-check without tests
         run: |
@@ -117,7 +116,6 @@ jobs:
         with:
           extra-packages: any::sessioninfo, any::rcmdcheck, any::pkgdepends
           needs: check
-          cache: ${{ !env.ACT }}
 
       - uses: r-lib/actions/check-r-package@v2
         with:
