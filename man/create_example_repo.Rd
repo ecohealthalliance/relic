@@ -28,3 +28,11 @@ The path to the created repository
 This function generates a repository with a commit history that can be used
 for testing and examples.
 }
+\examples{
+\dontshow{if (rlang::is_installed("targets")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
+ example_repo <- create_example_repo(s3 = FALSE)
+ fs::dir_ls(example_repo, all = TRUE)
+ dir_ls_version(".", "initial-target-file", repo = example_repo)
+\dontshow{\}) # examplesIf}
+}

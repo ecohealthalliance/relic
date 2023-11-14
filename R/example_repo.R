@@ -9,6 +9,11 @@
 #' @param overwrite Whether to overwrite the directory if it already exists.
 #' @return The path to the created repository
 #' @export
+#' @examplesIf rlang::is_installed("targets")
+#'
+#'  example_repo <- create_example_repo(s3 = FALSE)
+#'  fs::dir_ls(example_repo, all = TRUE)
+#'  dir_ls_version(".", "initial-target-file", repo = example_repo)
 create_example_repo <- function(dir = fs::file_temp("relic_example_"), reporter = "silent", s3 = TRUE, overwrite = TRUE) {
   check_installed(c("targets", "glue", "withr"))
   if (dir_exists(dir)) if (overwrite) dir_delete(dir) else abort("Directory already exists")
