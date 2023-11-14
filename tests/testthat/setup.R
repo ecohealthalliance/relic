@@ -1,4 +1,4 @@
-Sys.setenv("RELIC_TEST_S3"="true")
+#Sys.setenv("RELIC_TEST_S3"="true")
 
 withr::local_envvar(
   "R_USER_CACHE_DIR" = tempdir())
