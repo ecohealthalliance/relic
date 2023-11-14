@@ -15,7 +15,7 @@ jobs:
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         config:
           - {os: macos-latest,   r: 'release'}
@@ -41,7 +41,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck
+          extra-packages: any::sessioninfo, any::rcmdcheck
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2
