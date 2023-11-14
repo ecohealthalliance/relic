@@ -9,19 +9,38 @@ on:
 name: R-CMD-check
 
 jobs:
-  R-CMD-check:
+  R-CMD-check-base:
+    runs-on: ubuntu-latest
+  env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+
+  steps:
+    - uses: actions/checkout@v3
+    - uses: r-lib/actions/setup-pandoc@v2
+    - uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: release
+        use-public-rspm: true
+    - uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        extra-packages: any::sessioninfo, any::rcmdcheck, any::pkgdepends
+        needs: check
+    - uses: r-lib/actions/check-r-package@v2
+      with:
+          upload-snapshots: true
+  R-CMD-check-grid:
     runs-on: ${{ matrix.config.os }}
-
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-
+    needs: R-CMD-check-base
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         config:
           - {os: macos-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
+         #- {os: ubuntu-latest,   r: 'release'}
           - {os: ubuntu-latest,   r: 'oldrel-1'}
 
     env:
@@ -30,9 +49,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
       - uses: r-lib/actions/setup-pandoc@v2
-
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.config.r }}
