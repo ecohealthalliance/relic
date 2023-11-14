@@ -1,4 +1,4 @@
-#Sys.setenv("RELIC_TEST_S3"="true")
+Sys.setenv("RELIC_TEST_S3"="true")
 
 withr::local_envvar(
   "R_USER_CACHE_DIR" = tempdir())
@@ -10,7 +10,8 @@ if(nzchar(Sys.getenv("RELIC_TEST_S3"))) {
 
   mc_dir <- tools::R_user_dir("relic-test", "data")
   dir_create(mc_dir)
-  withr::local_options(list("minioclient.dir"=mc_dir))
+  # Set minioclient directory to package directory so it is cached with packages
+  withr::local_options(list("minioclient.dir"=file.path(find.package("minioclient"), "mc_bin")))
 
   minioclient::install_mc()
   minioclient::install_minio_server()
