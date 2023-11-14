@@ -28,7 +28,7 @@ jobs:
       - name: Run just package tests and record test coverage
         run: |
           cat("LOGNAME=", Sys.info()[["user"]], "\n", sep = "", file = Sys.getenv("GITHUB_ENV"), append = TRUE)
-          cat("check-dir-path=", file.path(getwd(), (${{ inputs.check-dir }})), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
+          cat("check-dir-path=", file.path(getwd(), ("check")), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
           coverage <- covr::package_coverage(code = "saveRDS(testthat::test_package('relic', reporter = 'Summary'"), install_path = "check"))
           saveRDS(coverage, file.path("check", "coverage.rds"))
         shell: Rscript {0}
@@ -38,8 +38,8 @@ jobs:
           cat("LOGNAME=", Sys.info()[["user"]], "\n", sep = "", file = Sys.getenv("GITHUB_ENV"), append = TRUE)
           if (Sys.getenv("_R_CHECK_FORCE_SUGGESTS_", "") == "") Sys.setenv("_R_CHECK_FORCE_SUGGESTS_" = "false")
           if (Sys.getenv("_R_CHECK_CRAN_INCOMING_", "") == "") Sys.setenv("_R_CHECK_CRAN_INCOMING_" = "false")
-          cat("check-dir-path=", file.path(getwd(), (${{ inputs.check-dir }})), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
-          rcmdcheck::rcmdcheck(args = c("--no-tests", "--no-manual"), error_on = "warning", check_dir = (${{ inputs.check-dir }}))
+          cat("check-dir-path=", file.path(getwd(), ("check")), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
+          rcmdcheck::rcmdcheck(args = c("--no-tests", "--no-manual"), error_on = "warning", check_dir = ("check"))
         shell: Rscript {0}
       - name: Print and upload coverage
         run: |
