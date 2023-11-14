@@ -5,6 +5,13 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      ssh_debug:
+        description: Launch shell for interactive debugging?
+        type: boolean
+        required: true
+        default: false
 
 name: R-CMD-check
 
@@ -65,6 +72,12 @@ jobs:
           gp
         shell: Rscript {0}
         continue-on-error: true
+      - name: Launch a temporary interactive debugging session
+        uses: mxschmitt/action-tmate@v3.16
+        if: always() && inputs.ssh_debug
+        with:
+          detached: true
+
 
      #  - uses: r-lib/actions/check-r-package@v2
      #   with:
@@ -109,3 +122,9 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+
+      - name: Launch a temporary interactive debugging session
+        uses: mxschmitt/action-tmate@v3.16
+        if: always() && inputs.ssh_debug
+        with:
+          detached: true
