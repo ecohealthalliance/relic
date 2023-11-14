@@ -4,6 +4,7 @@ inst/mc
 docs
 tests/testthat/*.log
 check
+artifacts
 ### R ###
 # History files
 *Rhistory

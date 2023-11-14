@@ -12,3 +12,5 @@
 ^pkgdown$
 ^inst/scratch$
 ^inst/mc$
+^check$
+^artifacts$
