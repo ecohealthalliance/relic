@@ -1,16 +1,17 @@
 #' List files and folders in a git repository
 #'
 #' @inheritParams file_read_version
-#' @param param all If TRUE hidden files are also returned
+#' @param all If TRUE hidden files are also returned
 #' @param recurse If TRUE recurse fully, if a positive number the number of levels to recurse
 #' @param type One or more of "any", "file", "directory", "symlink", or "submodule"
-#' @param regexp A regular expression (e.g. ⁠[.]csv$⁠) passed on to grep() to filter paths.
-#' @param glob A wildcard aka globbing pattern (e.g. ⁠*.csv⁠) passed on to grep() to filter paths
+#' @param regexp A regular expression (e.g. '\\.csv$'⁠) passed on to grep() to filter paths.
+#' @param glob A wildcard aka globbing pattern (e.g. '*.csv'⁠) passed on to grep() to filter paths
 #' @param invert If TRUE, return paths that do not match the pattern or glob
 #' @return A character vector of paths
 #' @export
-dir_ls_version <- function(path = ".", ref = "HEAD", all = FALSE, recurse = FALSE, type = "any", regexp = NULL, glob = NULL, repo = ".") {
-  tree <- get_obj_at_commit(path, ref, repo)
+dir_ls_version <- function(path = ".", ref = "HEAD", all = FALSE, recurse = FALSE, type = "any", regexp = NULL, glob = NULL, invert = FALSE, repo = ".") {
+  commit <- as_commit(ref, repo)
+  tree <- get_obj_at_commit(path, commit)
   if (!is_tree(tree)) abort("Path is not a directory")
   if (!is.numeric(recurse)) recurse <- if (recurse) Inf else 0
 
@@ -27,7 +28,7 @@ dir_ls_version <- function(path = ".", ref = "HEAD", all = FALSE, recurse = FALS
   if (!all) {
     paths <- path_filter(paths, regexp = "^[^\\.].*$")
   }
-  paths <- path_filter(paths, glob = glob, regexp = regexp)
+  paths <- path_filter(paths, glob = glob, regexp = regexp, invert = invert)
   paths
 }
 

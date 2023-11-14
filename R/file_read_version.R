@@ -30,14 +30,12 @@ file_read_versions <- function(path, from = "HEAD", to = NULL, repo = ".") {
   versions
 }
 
-file_read_version_single <- function(path, ref) {
+file_read_version_single <- function(path, ref, repo) {
   commit <- as_commit(ref, repo)
   obj <- get_obj_at_commit(path, commit)
-  if (is_tree(obj) || is_empty(obj)) {
+  if (is_tree(obj) || rlang::is_empty(obj)) {
     return(NULL)
   } else if (is_blob(obj)) {
     return(read_blob(obj))
-  } else {
-    abort("Path is not a file or directory")
   }
 }

@@ -12,7 +12,8 @@ file_copy_version(
   dir = NULL,
   full_name = NULL,
   recurse = TRUE,
-  repo = "."
+  repo = ".",
+  use_cache = TRUE
 )
 
 file_copy_versions(
@@ -21,8 +22,10 @@ file_copy_versions(
   to = NULL,
   name = NULL,
   dir = NULL,
-  file_filter = NULL,
-  repo = "."
+  full_name = NULL,
+  recurse = TRUE,
+  repo = ".",
+  use_cache = TRUE
 )
 }
 \arguments{
@@ -48,9 +51,12 @@ numeric, how many levels deep should it be copied? Defaults to TRUE.}
 
 \item{repo}{The path to the git repository or a \code{\link[git2r:repository]{git2r::repository()}} object.}
 
+\item{use_cache}{Should the cache be used? Defaults to TRUE.}
+
 \item{from}{A commit object or revision string. A string of the form
 'from...to' may also be passed, in which case the commits between the two
-revision strings are used and the \code{to} argument is ignored.}
+revision strings are used and the \code{to} argument is ignored. If a list of commits
+is passed, these commits are used rather than calculating the commits between.}
 
 \item{to}{A commit object or reference}
 }
@@ -63,4 +69,10 @@ Where files do not exist in a commit, \code{NA} values are returned.
 }
 \description{
 Copy files from git history to disk. Directories are copied recursively.
+}
+\details{
+The default behavior is to copy the file to a cache directory named after
+both the commit and and the file path. These paths are universally unique,
+so if \code{use_cache = TRUE}, the file will not be re-copied if it already exists
+at that path.
 }

@@ -13,6 +13,7 @@ dir_ls_version(
   type = "any",
   regexp = NULL,
   glob = NULL,
+  invert = FALSE,
   repo = "."
 )
 
@@ -35,25 +36,26 @@ relative to the git directory}
 \item{ref}{A git commit SHA, tag, branch or other \href{https://git-scm.com/docs/git-rev-parse.html#_specifying_revisions}{revision string}:
 such as "HEAD~1", or a \code{\link[git2r:commit]{git2r::commit()}} object. Defaults to "HEAD".}
 
+\item{all}{If TRUE hidden files are also returned}
+
 \item{recurse}{If TRUE recurse fully, if a positive number the number of levels to recurse}
 
 \item{type}{One or more of "any", "file", "directory", "symlink", or "submodule"}
 
-\item{regexp}{A regular expression (e.g. ⁠\link{.}csv$⁠) passed on to grep() to filter paths.}
+\item{regexp}{A regular expression (e.g. '\\.csv$'⁠) passed on to grep() to filter paths.}
 
-\item{glob}{A wildcard aka globbing pattern (e.g. ⁠*.csv⁠) passed on to grep() to filter paths}
+\item{glob}{A wildcard aka globbing pattern (e.g. '*.csv'⁠) passed on to grep() to filter paths}
+
+\item{invert}{If TRUE, return paths that do not match the pattern or glob}
 
 \item{repo}{The path to the git repository or a \code{\link[git2r:repository]{git2r::repository()}} object.}
 
 \item{from}{A commit object or revision string. A string of the form
 'from...to' may also be passed, in which case the commits between the two
-revision strings are used and the \code{to} argument is ignored.}
+revision strings are used and the \code{to} argument is ignored. If a list of commits
+is passed, these commits are used rather than calculating the commits between.}
 
 \item{to}{A commit object or reference}
-
-\item{param}{all If TRUE hidden files are also returned}
-
-\item{invert}{If TRUE, return paths that do not match the pattern or glob}
 }
 \value{
 A character vector of paths

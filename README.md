@@ -17,7 +17,7 @@ status](https://www.r-pkg.org/badges/version/relic)](https://CRAN.R-project.org/
 <!-- badges: end -->
 
 > *And deeper than oblivion we do bury* <br /> *The incensing relics of
-> it* <br /> William Shakespeare, [All’s Well That Ends Well
+> it* <br /> William Shakespeare, [All’s Well That Ends Well,
 > V.3](https://internetshakespeare.uvic.ca/doc/AWW_M/scene/5.3/index.html)
 
 The `relic` package provides tools for working with version-controlled

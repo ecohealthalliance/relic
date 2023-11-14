@@ -1,5 +1,5 @@
 ---
-title: "Using `relic` with `targets`"
+title: "targets"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{targets}
@@ -17,23 +17,3 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(relic)
 ```
-
-`relic` is _most_ useful with `targets` when you are version-controlling your
-targets objects and data.  This means committing your target objects and files
-directly to your git repository, using git LFS to store target objects, and/or
-using [versioned cloud storage](https://books.ropensci.org/targets/cloud-storage.html)
-to store target objects. For all of these cases, you generally want to commit
-your `_targets/meta/meta` file to your git repository. This file contains
-information th state of the pipeline.
-
-Even if you are not version-controlling your targets objects and data, you can
-still make use of `relic` to inspect your pipeline history and also re-build
-targets from previous versions. This vignette shows you how.
-
-# Targets and cloud storage
-
-## Setup
-
-If you want to follow along with this part of the tutorial, you'll need to install the MinIO server and client programs.  These are used to set up a local server that emulates cloud storage.
-
-

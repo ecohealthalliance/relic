@@ -13,7 +13,8 @@
 #'
 #' @param from A commit object or revision string. A string of the form
 #'   'from...to' may also be passed, in which case the commits between the two
-#'   revision strings are used and the `to` argument is ignored.
+#'   revision strings are used and the `to` argument is ignored. If a list of commits
+#'   is passed, these commits are used rather than calculating the commits between.
 #' @param to A commit object or reference
 #' @param filter_file The path to a file relative to the git directory. If not NULL,
 #'   only commits modifying this file will be returned. Note that modifying
@@ -24,6 +25,9 @@
 #' @export
 commits_between <- function(from, to = NULL, filter_file = NULL, repo = ".") {
   repo <- as_repo(repo)
+  if (is.list(from) && all(vapply(from, is_commit, logical(1)))) {
+    return(commits)
+  }
   range <- commits_range(from, to, repo)
   if (is.null(range[[2]])) {
     return(list(range[[1]]))
@@ -66,7 +70,7 @@ commits_between <- function(from, to = NULL, filter_file = NULL, repo = ".") {
 }
 
 #' Parse 1 or 2 commits or revision strings into two commits
-#' @dev
+#' @noRd
 commits_range <- function(from, to, repo) {
   if (is.character(from)) {
     refs <- strsplit(from, "...", fixed = TRUE)[[1]]

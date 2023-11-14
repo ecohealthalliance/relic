@@ -6,33 +6,33 @@ get_obj_at_commit <- function(path, commit) {
     return(obj)
   }
 
-  for (i in seq_len(splits)) {
+  for (i in seq_along(splits)) {
     parent <- obj
     obj <- obj[splits[i]]
-    if (is_empty(obj)) {
+    if (rlang::is_empty(obj)) {
       return(NULL)
     }
   }
 
   if (is_blob(obj)) {
-    return(relic(obj, mode = parent$mode[parent$id == obj$sha]))
+    return(relic(obj, mode = parent$filemode[parent$id == obj$sha]))
   } else {
     return(obj)
   }
 }
 
 read_blob <- function(blob) {
-  content(blob, split = FALSE, raw = is_binary(obj))
+  content(blob, split = FALSE, raw = git2r::is_binary(blob))
 }
 
 #' Write out the contents of a blob to a file
 #' Will always create the path and overwrite existing files
-#' @dev
-blob_to_file <- function(relic, path, mode = relic$mode) {
-  contents <- read_blob(obj)
+#' @noRd
+blob_to_file <- function(relic, path, mode = attr(relic, "mode")) {
+  contents <- read_blob(relic)
   dir_create(path_dir(path))
   if (mode == "120000") {
-    file_symlink(contents, path)
+    link_create(contents, path)
   } else if (mode %in% c("100644", "100755")) {
     if (is.raw(contents)) {
       writeBin(contents, path)
@@ -49,7 +49,7 @@ blob_to_file <- function(relic, path, mode = relic$mode) {
   path
 }
 
-tree_to_dir <- function(tree, path, recurse = TRUE) {
+tree_to_dir <- function(obj, path, recurse = TRUE) {
   dir_create(path)
   if (!is.numeric(recurse)) recurse <- (if (recurse) Inf else 0) + 1
   while (recurse > 0) {
@@ -60,8 +60,8 @@ tree_to_dir <- function(tree, path, recurse = TRUE) {
       path_i <- path(dir, name_i)
       if (is_tree(obj_i)) {
         dir_create(path_i)
-        tree_to_dir(obj_i, name = name_i, dir = path_i, recurse = recurse)
-      } else if (if_blob(obj_i)) {
+        tree_to_dir(obj_i, path_i, recurse)
+      } else if (is_blob(obj_i)) {
         blob_to_file(obj_i, path_i, sprintf("%06o", tree$filemode[i]))
       } else {
         abort("Object is not a git blob or tree")

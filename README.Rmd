@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 
 > _And deeper than oblivion we do bury_  <br />
 > _The incensing relics of it_  <br />
-> William Shakespeare, [All's Well That Ends Well V.3](https://internetshakespeare.uvic.ca/doc/AWW_M/scene/5.3/index.html)
+> William Shakespeare, [All's Well That Ends Well, V.3](https://internetshakespeare.uvic.ca/doc/AWW_M/scene/5.3/index.html)
 
 The `relic` package provides tools for working with version-controlled workflows,
 in git repositories. It enables extracting and comparing files and objects from project history.

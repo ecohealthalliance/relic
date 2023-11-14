@@ -1,8 +1,8 @@
 ---
-title: "Analyzing relic Git History with relic"
+title: "intro"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{relic-history}
+  %\VignetteIndexEntry{intro}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,7 +16,4 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(relic)
-library(igraph)
 ```
-
-

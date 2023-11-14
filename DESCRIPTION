@@ -5,37 +5,42 @@ Authors@R: c(
     person("Noam", "Ross", , "ross@ecohealthalliance.org", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-2136-0000")),
     person("EcoHealth Alliance", role = c("cph", "fnd"))
-    )
-Description: Tools working with the history of version-controlled projects, 
+  )
+Description: The 'relic' package provides tools for extracting files and
+    objects from the history of a git repository. It is a high-level
+    interface designed to enable comparison of objects in reproducible
+    research workflows, especially pipelines that use the 'targets'
+    package.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Language: en-US
-Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
-RoxygenNote: 7.2.3
+URL: https://ecohealthalliance.github.io/relic,
+    https://ecohealthalliance.r-universe.dev/relic
+BugReports: https://github.com/ecohealthalliance/relic/issues
 Imports: 
-    git2r,
     fs,
+    git2r,
     rlang
 Suggests: 
-    igraph,
+    callr,
+    devtag,
+    glue,
     knitr,
+    lintr,
+    minioclient,
+    pkgcheck,
     rmarkdown,
+    spelling,
     targets,
     testthat (>= 3.0.0),
-    devtag,
-    pkgcheck,
-    lintr,
-    processx,
-    paws,
-    httr,
-    autotest,
-    callr,
-    spelling
+    withr
+VignetteBuilder: 
+    knitr
 Remotes:
-    ropensci/git2r,
-    moodymudskipper/devtag,
-    ropensci-review-tools/pkgcheck
+    cboettig/minioclient#14,
+    ropensci-review-tools/pkgcheck,
+    ropensci/git2r
 Config/testthat/edition: 3
-URL: https://ecohealthalliance.github.io/relic, https://ecohealthalliance.r-universe.dev/relic
-BugReports: https://github.com/ecohealthalliance/relic/issues
-VignetteBuilder: knitr
+Encoding: UTF-8
+Language: en-US
+Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace",
+    "devtag::dev_roclet"))
+RoxygenNote: 7.2.3

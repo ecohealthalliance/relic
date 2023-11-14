@@ -1,28 +1,27 @@
 #' An internal S3 class of git objects with additional metadata
-
+#' @param x an object
 is_relic <- function(x) inherits(x, "relic") && !is.null(attr(x, "mode"))
 
 #' @export
+#' @noRd
 relic <- function(x, ...) {
   UseMethod("relic")
 }
 
-#' @export
-relic.git_tree <- function(tree, i) {
-  blob <- tree[i]
+relic.git_tree <- function(x, i, ...) {
+  blob <- x[i]
   if (!is_blob(blob)) abort("Object is not a git blob")
   structure(
     blob,
-    mode = sprintf("%06o", tree$filemode[i]),
+    mode = if (is.integer(mode)) sprintf("%06o", mode) else mode,
     class = c("relic", "git_blob")
   )
 }
 
-#' @export
-relic.git_blob <- function(blob, mode) {
+relic.git_blob <- function(x, mode, ...) {
   structure(
-    blob,
-    mode = mode,
+    x,
+    mode = if (is.integer(mode)) sprintf("%06o", mode) else mode,
     class = c("relic", "git_blob")
   )
 }

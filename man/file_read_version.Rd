@@ -20,7 +20,8 @@ such as "HEAD~1", or a \code{\link[git2r:commit]{git2r::commit()}} object. Defau
 
 \item{from}{A commit object or revision string. A string of the form
 'from...to' may also be passed, in which case the commits between the two
-revision strings are used and the \code{to} argument is ignored.}
+revision strings are used and the \code{to} argument is ignored. If a list of commits
+is passed, these commits are used rather than calculating the commits between.}
 
 \item{to}{A commit object or reference}
 }

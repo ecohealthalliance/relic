@@ -1,24 +1,31 @@
-#' Get system-level temporary directories and files
+#' The relic cache directory
 #'
-#' Useful for files that should survive restarting R, but not resetting the
-#' computer.  For instance, [`targets`](https://docs.ropensci.org/targets/) uses
-#' a new session for each target built, so these paths will persist across the
-#' entire build process.
-#' @dev
-sys_tempdir <- function() {
-  path_dir(path_temp())
+#' Get the relic cache directory, which can be specified as either the R option
+#' `relic.cache.dir` or the environment variable `RELIC_CACHE_DIR`. (The
+#' environment variable has higher priority).  If neither
+#' is set, the default is set by tools::R_user_dir("relic", "cache").
+#' @export
+#' @return The path to the relic cache directory
+#' @examples
+#' relic_cache()
+relic_cache <- function() {
+  Sys.getenv(
+    "RELIC_CACHE_DIR",
+    getOption("relic.cache.dir",
+      default = tools::R_user_dir("relic", "cache")
+    )
+  )
 }
 
-#' @dev
-#' @param pattern A pattern to use for the temporary file name
-#' @param ext An extension to use for the temporary file name
-#' @rdname sys_tempdir
-sys_tempfile <- function(pattern, ext = "") {
-  file_temp(pattern = "file", tmp_dir = sys_tempdir(), ext = ext)
+#' @export
+#' @rdname relic_cache
+relic_cache_clear <- function() {
+  dir_delete(relic_cache())
 }
+
 
 #' Wrappers to convert objects to git2r objects but allow git2r objects to pass though
-#' @dev
+#' @noRd
 as_repo <- function(x) {
   if (inherits(x, "git_repository")) {
     x
@@ -28,7 +35,7 @@ as_repo <- function(x) {
 }
 
 #' @rdname as_repo
-#' @dev
+#' @noRd
 as_commit <- function(x, repo = ".") {
   if (is_commit(x)) {
     x
