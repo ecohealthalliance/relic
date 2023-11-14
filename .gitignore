@@ -3,6 +3,7 @@ inst/scratch
 inst/mc
 docs
 tests/testthat/*.log
+check
 ### R ###
 # History files
 *Rhistory
