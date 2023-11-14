@@ -23,11 +23,35 @@ jobs:
           use-public-rspm: true
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::sessioninfo, any::rcmdcheck, any::pkgdepends
+          extra-packages: any::sessioninfo, any::rcmdcheck, any::pkgdepends, any::covr
           needs: check
-      - uses: r-lib/actions/check-r-package@v2
-        with:
-            upload-snapshots: true
+      - name: Run just package tests and record test coverage
+        run: |
+          cat("check-dir-path=", file.path(getwd(), (${{ inputs.check-dir }})), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
+          coverage <- covr::package_coverage(code = "saveRDS(testthat::test_package('relic', reporter = 'Summary'"), install_path = "check"))
+          saveRDS(coverage, file.path("check", "coverage.rds"))
+        shell: Rscript {0}
+      - name: Run R-CMD-check without tests
+        run: |
+          options(crayon.enabled = TRUE)
+          cat("LOGNAME=", Sys.info()[["user"]], "\n", sep = "", file = Sys.getenv("GITHUB_ENV"), append = TRUE)
+          if (Sys.getenv("_R_CHECK_FORCE_SUGGESTS_", "") == "") Sys.setenv("_R_CHECK_FORCE_SUGGESTS_" = "false")
+          if (Sys.getenv("_R_CHECK_CRAN_INCOMING_", "") == "") Sys.setenv("_R_CHECK_CRAN_INCOMING_" = "false")
+          cat("check-dir-path=", file.path(getwd(), (${{ inputs.check-dir }})), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
+          rcmdcheck::rcmdcheck(args = c("--no-tests", "--no-manual"), error_on = "warning", check_dir = (${{ inputs.check-dir }}))
+        shell: Rscript {0}
+      - name: Print and upload coverage
+        run: |
+          library(covr)
+          coverage <- readRDS(file.path("check", "coverage.rds"))
+          coverage
+          covr::codecov(coverage = coverage)
+        shell: Rscript {0}
+        continue-on-error: true
+
+     #  - uses: r-lib/actions/check-r-package@v2
+     #   with:
+     #     upload-snapshots: true
 
   R-CMD-check-grid:
     runs-on: ${{ matrix.config.os }}
