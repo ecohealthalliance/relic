@@ -8,18 +8,20 @@ if(nzchar(Sys.getenv("RELIC_TEST_S3"))) {
   s3_dir <- file_temp("s3_cache")
   dir_create(s3_dir)
 
+  # Set minioclient directory to package directory so it is cached with packages
   mc_dir <- file.path(find.package("minioclient"), "mc_bin")
   dir_create(mc_dir)
-  # Set minioclient directory to package directory so it is cached with packages
-  withr::local_options(list(minioclient.dir = mc_dir))
-  options(minioclient.dir = mc_dir)
+  withr::local_options(list(minioclient.dir = mc_dir, minioserver.dir = mc_dir))
   minioclient::install_mc()
   minioclient::install_minio_server()
   message("Installed MinIO server and client")
+
+  # Launch server
   s3_srv <- minioclient::minio_server(dir = s3_dir, process_args = list(stdout = "minio.log", stderr = "2>&1"))
   Sys.sleep(2)
   stopifnot(s3_srv$is_alive())
   message("Started background MinIO server")
+
   ## Create a bucket for testing
   minioclient::mc_alias_set("relic", "localhost:9000", "minioadmin", "minioadmin", scheme = "http")
   minioclient::mc_mb("relic/relic-test")

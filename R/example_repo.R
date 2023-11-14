@@ -43,7 +43,11 @@ create_example_repo <- function(dir = fs::file_temp("relic_example_"), reporter 
   if(s3) {
   insert_lines_at(
     "_targets.R", 2,
-    'Sys.setenv(AWS_ACCESS_KEY_ID="minioadmin", AWS_SECRET_ACCESS_KEY="minioadmin")
+    'Sys.setenv(
+      AWS_ACCESS_KEY_ID="minioadmin",
+      AWS_SECRET_ACCESS_KEY="minioadmin",
+      AWS_DEFAULT_REGION="us-east-1"
+      )
      tar_option_set(
        resources = tar_resources(
          aws = tar_resources_aws(
