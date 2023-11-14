@@ -3,10 +3,6 @@
 # - A new release is published
 # - Changes to the main branch
 on:
-  release:
-    types: [published]
-  push:
-    branches: [master, main]
   workflow_dispatch:
 
 name: Update Docs and Metadata
