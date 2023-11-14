@@ -21,3 +21,5 @@ PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source --install-tests
 PackageCheckArgs: --no-tests
 PackageRoxygenize: rd,collate,namespace,devtag::dev_roclet
+
+QuitChildProcessesOnExit: Yes
