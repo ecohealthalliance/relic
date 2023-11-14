@@ -11,8 +11,8 @@ if(nzchar(Sys.getenv("RELIC_TEST_S3"))) {
   mc_dir <- file.path(find.package("minioclient"), "mc_bin")
   dir_create(mc_dir)
   # Set minioclient directory to package directory so it is cached with packages
-  withr::local_options(list("minioclient.dir" = mc_dir))
-
+  withr::local_options(list(minioclient.dir = mc_dir))
+  options(minioclient.dir = mc_dir)
   minioclient::install_mc()
   minioclient::install_minio_server()
   message("Installed MinIO server and client")
