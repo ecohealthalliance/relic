@@ -27,6 +27,7 @@ jobs:
           needs: check
       - name: Run just package tests and record test coverage
         run: |
+          cat("LOGNAME=", Sys.info()[["user"]], "\n", sep = "", file = Sys.getenv("GITHUB_ENV"), append = TRUE)
           cat("check-dir-path=", file.path(getwd(), (${{ inputs.check-dir }})), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
           coverage <- covr::package_coverage(code = "saveRDS(testthat::test_package('relic', reporter = 'Summary'"), install_path = "check"))
           saveRDS(coverage, file.path("check", "coverage.rds"))
