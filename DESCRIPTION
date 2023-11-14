@@ -35,7 +35,7 @@ VignetteBuilder:
     knitr
 Remotes:
     cboettig/minioclient#14,
-    ropensci/git2r
+    ropensci/git2r,
     moodymudskipper/devtag
 Config/testthat/edition: 3
 Encoding: UTF-8
