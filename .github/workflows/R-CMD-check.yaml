@@ -49,6 +49,14 @@ jobs:
           covr::codecov(coverage = coverage)
         shell: Rscript {0}
         continue-on-error: true
+      - name: Additional diagnostics
+        run: |
+          pkc <- pkgcheck::pkgcheck(goodpractice = FALSE)
+          gp <- goodpractice::goodpractice(checks = goodpractice::all_checks()[grep("(rcmdcheck|covr)", goodpractice::all_checks(), invert = TRUE)])
+          pkc
+          gp
+        shell: Rscript {0}
+        continue-on-error: true
 
      #  - uses: r-lib/actions/check-r-package@v2
      #   with:
