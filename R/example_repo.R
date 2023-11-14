@@ -6,14 +6,14 @@
 #' @param reporter the reporter to use when building targets with [targets::tar_make()]. Defaults to "silent".
 #' @param s3 Whether the repository should use S3 storage for targets. Note that
 #'   the S3 endpoint and bucket must already be available.
+#' @param overwrite Whether to overwrite the directory if it already exists.
 #' @return The path to the created repository
 #' @export
-create_example_repo <- function(dir = fs::file_temp("relic_example_"), reporter = "silent", s3 = TRUE) {
-  check_installed(c("targets", "glue"))
-  if (dir_exists(dir)) dir_delete(dir)
+create_example_repo <- function(dir = fs::file_temp("relic_example_"), reporter = "silent", s3 = TRUE, overwrite = TRUE) {
+  check_installed(c("targets", "glue", "withr"))
+  if (dir_exists(dir)) if (overwrite) dir_delete(dir) else abort("Directory already exists")
   dir_create(dir)
-  od <- setwd(dir)
-  on.exit(setwd(od))
+  withr::local_dir(dir)
   repo <- git2r::init()
   # Configure the repository to use a generic user name and email address
   git2r::config(repo, user.name = "relic-bot", user.email = "relic@relic.r.pacakge")

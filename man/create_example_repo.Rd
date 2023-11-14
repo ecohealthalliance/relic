@@ -7,7 +7,8 @@
 create_example_repo(
   dir = fs::file_temp("relic_example_"),
   reporter = "silent",
-  s3 = TRUE
+  s3 = TRUE,
+  overwrite = TRUE
 )
 }
 \arguments{
@@ -17,6 +18,8 @@ create_example_repo(
 
 \item{s3}{Whether the repository should use S3 storage for targets. Note that
 the S3 endpoint and bucket must already be available.}
+
+\item{overwrite}{Whether to overwrite the directory if it already exists.}
 }
 \value{
 The path to the created repository
