@@ -6,6 +6,8 @@
 #' @param reporter the reporter to use when building targets with [targets::tar_make()]. Defaults to "silent".
 #' @param s3 Whether the repository should use S3 storage for targets. Note that
 #'   the S3 endpoint and bucket must already be available.
+#' @return The path to the created repository
+#' @export
 create_example_repo <- function(dir = fs::file_temp("relic_example_"), reporter = "silent", s3 = TRUE) {
   check_installed(c("targets", "glue"))
   if (dir_exists(dir)) dir_delete(dir)

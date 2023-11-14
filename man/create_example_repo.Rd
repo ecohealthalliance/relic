@@ -18,6 +18,9 @@ create_example_repo(
 \item{s3}{Whether the repository should use S3 storage for targets. Note that
 the S3 endpoint and bucket must already be available.}
 }
+\value{
+The path to the created repository
+}
 \description{
 This function generates a repository with a commit history that can be used
 for testing and examples.
