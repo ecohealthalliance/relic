@@ -8,12 +8,10 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/ecohealthalliance/relic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ecohealthalliance/relic/actions/workflows/R-CMD-check.yaml)
-[![pkgcheck](https://github.com/ecohealthalliance/relic/workflows/pkgcheck/badge.svg)](https://github.com/ecohealthalliance/relic/actions?query=workflow%3Apkgcheck)
+<!-- [![pkgcheck](https://github.com/ecohealthalliance/relic/workflows/pkgcheck/badge.svg)](https://github.com/ecohealthalliance/relic/actions?query=workflow%3Apkgcheck) -->
 [![codecov](https://codecov.io/gh/ecohealthalliance/relic/branch/main/graph/badge.svg)](https://codecov.io/gh/ecohealthalliance/relic)
-[![relic on
-R-Universe](https://ecohealthalliance.r-universe.dev/badges/relic)](https://ecohealthalliance.r-universe.dev/relic)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/relic)](https://CRAN.R-project.org/package=relic)
+<!-- [![relic on R-Universe](https://ecohealthalliance.r-universe.dev/badges/relic)](https://ecohealthalliance.r-universe.dev/relic) -->
+<!-- [![CRAN status](https://www.r-pkg.org/badges/version/relic)](https://CRAN.R-project.org/package=relic) -->
 <!-- badges: end -->
 
 > *And deeper than oblivion we do bury* <br /> *The incensing relics of
