@@ -33,7 +33,7 @@ jobs:
         run: |
           cat("LOGNAME=", Sys.info()[["user"]], "\n", sep = "", file = Sys.getenv("GITHUB_ENV"), append = TRUE)
           cat("check-dir-path=", file.path(getwd(), ("check")), "\n", file = Sys.getenv("GITHUB_OUTPUT"), sep = "", append = TRUE)
-          coverage <- covr::package_coverage(code = "saveRDS(testthat::test_package('relic', reporter = 'Summary'), file.path("check", "coverage.rds"))", install_path = "check")
+          coverage <- covr::package_coverage(code = "saveRDS(testthat::test_package('relic', reporter = 'Summary'), file.path('check', 'coverage.rds'))", install_path = "check")
           saveRDS(coverage, file.path("check", "coverage.rds"))
         shell: Rscript {0}
       - name: Run R-CMD-check without tests
