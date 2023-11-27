@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-The 'relic' package provides tools for extracting files and objects from the history of a git repository. It is a high-level interface designed to enable comparison of objects in reproducible research workflows, especially pipelines that use the 'targets' package.
+The 'relic' package provides tools for extracting files and objects from the revision history, including local and remote git repositories and S3 buckets. It is a high-level interface designed to enable comparison of objects in reproducible research workflows, especially pipelines that use the 'targets' package.
 }
 \seealso{
 Useful links:
