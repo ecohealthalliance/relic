@@ -36,7 +36,7 @@ jobs:
           use-public-rspm: true
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::sessioninfo, any::rcmdcheck, any::pkgdepends, any::covr, any::ropensci-review-tools/pkgcheck, any::riskmetric
+          extra-packages: any::sessioninfo, any::rcmdcheck, any::pkgdepends, any::covr, any::riskmetric, github::ropensci-review-tools/pkgcheck,
           needs: check
       - name: Run just package tests and record test coverage
         run: |
