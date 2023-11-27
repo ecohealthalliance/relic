@@ -12,5 +12,6 @@
 ^pkgdown$
 ^inst/scratch$
 ^inst/mc$
+^ints/cache_timestamp.rds
 ^check$
 ^artifacts$

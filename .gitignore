@@ -1,5 +1,6 @@
 inst/doc
 inst/scratch
+inst/cache_timestamp.rds
 inst/mc
 docs
 tests/testthat/*.log
