@@ -7,9 +7,6 @@ This outlines how to propose a change to `relic`.
 -   `relic` is a high-level interface designed for working with git repositories
     of data science workflows. It is not intended to be a general-purpose client
     for git.
--   `relic`'s primary features are for extracting and comparing files and data
-    from git history and running code within and across git history. Functions 
-    in the package are generally _read-only_ and do not commit or modify history.
 -   `relic` aims to have relatively few dependencies for its core functions (`git2r`
     and low-level packages such as `fs` and `rlang`).  For extended functionality,
     other packages may be used, but these should live under `Suggests:` and
@@ -21,7 +18,7 @@ This outlines how to propose a change to `relic`.
 -   `relic` has specific support for workflows using
      [`targets`](https://books.ropensci.org/targets/).  Similar functionality
      for other workflow managers may be considered in the future, as may high-level
-     interfaces for dealing with other versioned data such as S3 buckets.
+     interfaces for dealing with other versioned data.
 -   `relic` uses `git2r` to interface with git/libgit2.  In general `relic` functions
     should not call `libgit2` directly nor call `git` via the command line.  If
     `git2r` does not expose needed functionality in `libgit2`, consider making

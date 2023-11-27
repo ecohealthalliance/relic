@@ -46,7 +46,7 @@ especially well when used in conjunction with [cloud-based, versioned object sto
 You can install the development version of `relic` like so:
 
 ```r
-install.packages("relic", repos = c("https://ecohealthalliance.r-universe.dev"))
+devtools::install_github("ecohealthalliance/relic")
 ```
 
 
