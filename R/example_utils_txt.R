@@ -24,7 +24,6 @@ append_to_file <- function(path, text) {
 overwrite_at_line <- function(path, line, text) {
   file_lines <- readLines(path)
   text <- strsplit(glue::glue(text, .open = "<<", .close = ">>", ), "\n")[[1]]
-  # text_lines <- seq_along(text) + line - 1
   for (i in seq_along(text)) {
     file_lines[line + i - 1] <- text[i]
   }
@@ -45,6 +44,6 @@ delete_lines <- function(path, lines) {
 insert_lines_at <- function(path, line, text) {
   file_lines <- readLines(path)
   text <- strsplit(glue::glue(text, .open = "<<", .close = ">>", ), "\n")[[1]]
-  file_lines <- c(file_lines[1:(line-1)], text, file_lines[(line):length(file_lines)])
+  file_lines <- c(file_lines[1:(line - 1)], text, file_lines[(line):length(file_lines)])
   writeLines(file_lines, path)
 }

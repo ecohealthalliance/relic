@@ -1,16 +1,15 @@
-Sys.setenv("RELIC_TEST_S3"="true")
-
 withr::local_envvar(
-  "R_USER_CACHE_DIR" = tempdir())
+  "R_USER_CACHE_DIR" = tempdir()
+)
 
 ## Run a MinIO server in the background to test S3 object storage with `targets`
-if(nzchar(Sys.getenv("RELIC_TEST_S3"))) {
-  s3_dir <- file_temp("s3_cache")
-  dir_create(s3_dir)
+if (nzchar(Sys.getenv("RELIC_TEST_S3"))) {
+  s3_dir <- fs::file_temp("s3_cache")
+  fs::dir_create(s3_dir)
 
   # Set minioclient directory to package directory so it is cached with packages
   mc_dir <- file.path(find.package("minioclient"), "mc_bin")
-  dir_create(mc_dir)
+  fs::dir_create(mc_dir)
   withr::local_options(list(minioclient.dir = mc_dir, minioserver.dir = mc_dir))
   minioclient::install_mc()
   minioclient::install_minio_server()
@@ -28,7 +27,7 @@ if(nzchar(Sys.getenv("RELIC_TEST_S3"))) {
 
   s3_repo <- create_example_repo(s3 = TRUE)
 
-  if(rlang::is_interactive()) {
+  if (rlang::is_interactive()) {
     s3_srv$kill()
     dir_delete(s3_dir)
   } else {
@@ -36,14 +35,8 @@ if(nzchar(Sys.getenv("RELIC_TEST_S3"))) {
     withr::defer(dir_delete(s3_dir), testthat::teardown_env())
     withr::defer(dir_delete(s3_repo), testthat::teardown_env())
   }
-
 }
 
 ## Create an example repository for testing
 ex_repo <- create_example_repo(s3 = FALSE)
 withr::defer(dir_delete(ex_repo), testthat::teardown_env())
-
-
-
-
-

@@ -9,11 +9,11 @@
 #' @param overwrite Whether to overwrite the directory if it already exists.
 #' @return The path to the created repository
 #' @export
-#' @examplesIf rlang::is_installed("targets")
+#' @examplesIf rlang::is_installed("targets") && rlang::is_interactive()
 #'
-#'  example_repo <- create_example_repo(s3 = FALSE)
-#'  fs::dir_ls(example_repo, all = TRUE)
-#'  dir_ls_version(".", "initial-target-file", repo = example_repo)
+#' example_repo <- create_example_repo(s3 = FALSE)
+#' fs::dir_ls(example_repo, all = TRUE)
+#' dir_ls_version(".", "initial-target-file", repo = example_repo)
 create_example_repo <- function(dir = fs::file_temp("relic_example_"), reporter = "silent", s3 = TRUE, overwrite = TRUE) {
   check_installed(c("targets", "glue", "withr"))
   if (dir_exists(dir)) if (overwrite) dir_delete(dir) else abort("Directory already exists")
@@ -47,10 +47,10 @@ create_example_repo <- function(dir = fs::file_temp("relic_example_"), reporter 
   targets::tar_make(reporter = reporter)
   stamp("longer-cars")
 
-  if(s3) {
-  insert_lines_at(
-    "_targets.R", 2,
-    'Sys.setenv(
+  if (s3) {
+    insert_lines_at(
+      "_targets.R", 2,
+      'Sys.setenv(
       AWS_ACCESS_KEY_ID="minioadmin",
       AWS_SECRET_ACCESS_KEY="minioadmin",
       AWS_DEFAULT_REGION="us-east-1"
@@ -64,9 +64,10 @@ create_example_repo <- function(dir = fs::file_temp("relic_example_"), reporter 
         )),
       repository = "aws"
        )
-    ')
-  targets::tar_make(reporter = reporter)
-  stamp("setup-s3")
+    '
+    )
+    targets::tar_make(reporter = reporter)
+    stamp("setup-s3")
   }
 
   dir

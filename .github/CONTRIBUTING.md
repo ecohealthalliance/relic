@@ -26,9 +26,6 @@ This outlines how to propose a change to `relic`.
     should not call `libgit2` directly nor call `git` via the command line.  If
     `git2r` does not expose needed functionality in `libgit2`, consider making
     a contribution to `git2r`.
--   In general `relic` only deals with the local git repository.  It does not
-    interface with remote repositories, nor interact with the APIs of services like
-    GitLab, GitHub, or gitea.
     
 ## Testing
 

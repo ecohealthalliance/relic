@@ -7,7 +7,8 @@ Authors@R: c(
     person("EcoHealth Alliance", role = c("cph", "fnd"))
   )
 Description: The 'relic' package provides tools for extracting files and
-    objects from the history of a git repository. It is a high-level
+    objects from the revision history, including local and remote git
+    repositories and S3 buckets. It is a high-level
     interface designed to enable comparison of objects in reproducible
     research workflows, especially pipelines that use the 'targets'
     package.
@@ -18,17 +19,20 @@ BugReports: https://github.com/ecohealthalliance/relic/issues
 Imports: 
     fs,
     git2r,
+    gh,
     rlang
 Suggests: 
     callr,
-    devtag,
     glue,
     knitr,
     lintr,
     minioclient,
-    paws,
+    paws.storage,
+    openssl,
     rmarkdown,
+    rprojroot,
     spelling,
+    styler,
     targets,
     testthat (>= 3.0.0),
     withr
@@ -36,8 +40,7 @@ VignetteBuilder:
     knitr
 Remotes:
     cboettig/minioclient#14,
-    ropensci/git2r,
-    moodymudskipper/devtag
+    ropensci/git2r
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US

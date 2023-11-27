@@ -5,6 +5,7 @@ docs
 tests/testthat/*.log
 check
 artifacts
+relic-test
 ### R ###
 # History files
 *Rhistory
