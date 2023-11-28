@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# relic: objects from history <img src="man/figures/logo.png" align="right" height="206" alt="" />
+# relic: objects from history <img src="logo.png" align="right" height="206" alt="" />
 
 <!-- badges: start -->
 
