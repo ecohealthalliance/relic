@@ -1,2 +1,7 @@
-linters: linters_with_defaults() # see vignette("lintr")
+linters: linters_with_defaults(line_length_linter = NULL, indentation_linter = NULL)
+exclusions: list(
+  "inst/scratch",
+  "inst/example-repo" = list(undesirable_function_linter = Inf)
+  )
 encoding: "UTF-8"
+

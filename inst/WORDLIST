@@ -1,5 +1,6 @@
 CMD
 codecov
+config
 csv
 dir
 doltr
@@ -13,9 +14,11 @@ MinIO
 ORCID
 pkgcheck
 recurse
+repo
 retarting
 revwalk
 scm
 SHA
 submodule
 symlink
+VersionID

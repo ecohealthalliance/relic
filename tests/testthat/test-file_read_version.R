@@ -1,11 +1,9 @@
-test_that("files are read in properly", {
-
+test_that("files are found in properly", {
   withr::local_dir(ex_repo)
 
-  bin_file <- file_read_version("_targets/objects/cars", "first-targets-run", repo = ex_repo)[[1]]
-  text_file <- file_read_version("_targets.R", "first-targets-run", repo = ex_repo)[[1]]
-  no_file <- file_read_version("_targets/objects/cars", "initial-target-file", repo = ex_repo)[[1]]
-  expect_type(bin_file, "raw")
-  expect_type(text_file, "character")
-  expect_null(no_file)
+  bin_file <- get_file_version("_targets/objects/cars", "first-targets-run", repo = ex_repo)
+  text_file <- get_file_version("_targets.R", "first-targets-run", repo = ex_repo)
+  expect_error(get_file_version("_targets/objects/cars", "initial-target-file", repo = ex_repo))
+  expect_true(file_exists(bin_file))
+  expect_true(file_exists(text_file))
 })

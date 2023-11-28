@@ -1,10 +1,12 @@
 inst/doc
 inst/scratch
+inst/cache_timestamp.rds
 inst/mc
 docs
 tests/testthat/*.log
 check
 artifacts
+relic-test
 ### R ###
 # History files
 *Rhistory

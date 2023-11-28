@@ -1,38 +1,30 @@
-#' The relic cache directory
-#'
-#' Get the relic cache directory, which can be specified as either the R option
-#' `relic.cache.dir` or the environment variable `RELIC_CACHE_DIR`. (The
-#' environment variable has higher priority).  If neither
-#' is set, the default is set by tools::R_user_dir("relic", "cache").
-#' @export
-#' @return The path to the relic cache directory
-#' @examples
-#' relic_cache()
-relic_cache <- function() {
-  Sys.getenv(
-    "RELIC_CACHE_DIR",
-    getOption("relic.cache.dir",
-      default = tools::R_user_dir("relic", "cache")
-    )
-  )
-}
-
-#' @export
-#' @rdname relic_cache
-relic_cache_clear <- function() {
-  dir_delete(relic_cache())
-}
-
-
-#' Wrappers to convert objects to git2r objects but allow git2r objects to pass though
+#' Wrappers to convert objects to git2r objects but allow git2r objects to pass
+#' though
 #' @noRd
-as_repo <- function(x) {
+as_relic_repo <- function(x) {
   if (inherits(x, "git_repository")) {
-    x
+    repo <- structure(path(x$path), class = "relic_git_repo")
+  } else if (is.character(x) && dir_exists(x)) {
+    repo <- structure(path(discover_repository(x)), class = "relic_git_repo")
+  } else if (!is.null(gh_repo <- github_owner_repo(x))) {
+    repo <- structure(gh_repo, class = "relic_github_repo")
+  } else if (is.character(x) && substr(x, 1, 5) == "s3://") {
+    repo <- structure(substr(x, 6, nchar(x)), class = "relic_s3_repo")
   } else {
-    repository(x)
+    abort("Unable to find repository for ", x)
   }
+  return(repo)
 }
+
+github_owner_repo <- function(url) {
+  gh_regex <- "^(git@github.com:|https?://github.com/)?(?<owner>[^/]+)/(?<repo>[^/]+)(\\.git|/.*)?$"
+  owner_repo <- regmatches(url, regexec(gh_regex, url, perl = TRUE))[[1]][c("owner", "repo")]
+  if (any(is.na(owner_repo))) {
+    return(NULL)
+  }
+  as.list(owner_repo)
+}
+
 
 #' @rdname as_repo
 #' @noRd
@@ -40,11 +32,16 @@ as_commit <- function(x, repo = ".") {
   if (is_commit(x)) {
     x
   } else if (is.character(x)) {
-    repo <- as_repo(repo)
     revparse_single(repo, x)
   } else {
     commit(x)
   }
 }
 
-is_none <- function(x) length(x) == 0
+gql <- function(query, ...) {
+  gh(
+    endpoint = "POST /graphql", query = query,
+    .send_headers = c("X-Github-Next-Global-ID" = "1"),
+    ...
+  )
+}
