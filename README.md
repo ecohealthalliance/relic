@@ -37,7 +37,14 @@ storage](https://books.ropensci.org/targets/cloud-storage.html).
 
 ## Installation
 
-You can install the development version of `relic` like so:
+You can install the development version of `relic` from R-Universe like
+so:
+
+``` r
+install.packages("relic", repos = "https://ecohealthalliance.r-universe.dev")
+```
+
+Or, you can build the source package from GitHub with
 
 ``` r
 devtools::install_github("ecohealthalliance/relic")
