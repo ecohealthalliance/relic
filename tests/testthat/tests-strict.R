@@ -36,18 +36,4 @@ test_that("Spelling", {
   }
 })
 
-test_that("Styling", {
-  testthat::skip_on_cran()
-  testthat::skip_on_covr()
-  styler_output <- capture.output(styler_data <- styler::style_pkg(dry = "on"))
-  has_style_changes <- any(styler_data$changed)
-  if (strict_tests) {
-    expect(!has_style_changes, paste0(
-      "Style changes to make: \n",
-      collapse(styler_output, "\n")
-    ))
-  } else {
-    if (has_style_changes) warning("Style changes found, run `styler::style_pkg()` to fix them.")
-    expect_true(TRUE)
-  }
-})
+

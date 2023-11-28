@@ -12,7 +12,7 @@
 #' @examples
 #' relic_cache()
 relic_cache <- function() {
-  path_norm(dir_create(Sys.getenv(
+  dir_create(path_tidy(Sys.getenv(
     "RELIC_CACHE_DIR",
     getOption("relic.cache.dir",
       default = tools::R_user_dir("relic", "cache")
