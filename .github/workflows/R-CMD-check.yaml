@@ -36,6 +36,8 @@ jobs:
           sudo apt-get install -y --no-install-recommends git-crypt
           echo $GIT_CRYPT_KEY64 > git_crypt_key.key64 && base64 -di git_crypt_key.key64 > git_crypt_key.key && git-crypt unlock git_crypt_key.key
           rm git_crypt_key.key git_crypt_key.key64
+          # Select all values in .env and print with "::add-mask::" to obfuscate
+          grep -v '^#' .env | sed -E 's/(.*)=(.*)/\2/' | xargs -I '{}' echo "::add-mask::{}"
       - uses: r-lib/actions/setup-pandoc@v2
       - uses: r-lib/actions/setup-r@v2
         with:
