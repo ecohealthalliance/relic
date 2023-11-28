@@ -54,49 +54,61 @@ tar_read_raw_version <- function(name, ref = "HEAD", repo = ".", store = NULL) {
   }
 
   target <- switch(record$repository,
-    local = read_target_aws(record, path_store = path_store),
-    aws = read_target_aws(record, path_store = path_store),
-    abort("Unknown targets repository type: ", record$repository)
+                   local = read_target_aws(record),
+                   aws = read_target_aws(record),
+                   abort("Unknown targets repository type: ", record$repository)
   )
 
   target
 }
 
-read_target_aws <- function(record, path_store) {
+read_target_aws <- function(record) {
   aws_loc <- aws_loc_from_meta_path(record$path[[1]])
   local_target_path <- get_file_version(
     path = aws_loc$key, ref = aws_loc$version,
     repo = paste0("s3://", aws_loc$bucket),
     endpoint = aws_loc$endpoint, region = aws_loc$region
   )
-  record_local <- record
-  record_local$path <- list(local_target_path)
-  record_local$repository <- "local"
-  targets::tar_read_raw(record_local$name,
-    meta = record_local,
-    store = path_dir(path_dir(local_target_path))
-  )
+  if (record$format == "file") {
+    return(local_target_path)
+  } else {
+    record_local <- record
+    record_local$path <- NA
+    record_local$repository <- "local"
+    temp_store <- path_dir(dir_create(path(file_temp("_targets"), "objects")))
+    link_create(local_target_path, path(temp_store, "objects", path_file(local_target_path)))
+    on.exit(dir_delete(temp_store))
+    return(targets::tar_read_raw(record_local$name,
+                                 meta = record_local,
+                                 store = temp_store))
+  }
 }
 
-read_target_local <- function(record, path_store) {
+read_target_local <- function(record) {
   # For local targets
   local_target_path <- get_file_version(
     path = record$path[[1]], ref = record$version,
     repo = record$repository
   )
-  record_local <- record
-  record_local$path <- list(local_target_path)
-
-  targets::tar_read_raw(record_local$name,
-    meta = record_local,
-    store = path_store
-  )
+  if (record$format == "file") {
+    return(local_target_path)
+  } else {
+    record_local <- record
+    record_local$path <- NA
+    record_local$repository <- "local"
+    temp_store <- path_dir(dir_create(path(file_temp("_targets"), "objects")))
+    link_create(local_target_path, path(temp_store, "objects", path_file(local_target_path)))
+    on.exit(dir_delete(temp_store))
+    return(targets::tar_read_raw(record_local$name,
+                                 meta = record_local,
+                                 store = temp_store))
+  }
 }
 
 aws_loc_from_meta_path <- function(path) {
   splits <- strsplit(path, "=")
   aws_loc <- structure(lapply(splits, function(x) x[[2]]),
-    .Names = vapply(splits, function(x) x[[1]], character(1))
+                       .Names = vapply(splits, function(x) x[[1]], character(1))
   )
   if (!is.null(aws_loc$endpoint)) {
     aws_loc$endpoint <- rawToChar(openssl::base64_decode(aws_loc$endpoint))
