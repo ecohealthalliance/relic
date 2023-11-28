@@ -33,7 +33,7 @@ jobs:
       - name: Decrypt repository using symmetric key
         if: ${{ env.GIT_CRYPT_KEY64 }}
         run: |
-          apt-get install -y --no-install-recommends git-crypt
+          sudo apt-get install -y --no-install-recommends git-crypt
           echo $GIT_CRYPT_KEY64 > git_crypt_key.key64 && base64 -di git_crypt_key.key64 > git_crypt_key.key && git-crypt unlock git_crypt_key.key
           rm git_crypt_key.key git_crypt_key.key64
       - uses: r-lib/actions/setup-pandoc@v2
