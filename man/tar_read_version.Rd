@@ -5,44 +5,44 @@
 \alias{tar_read_raw_version}
 \title{Read a target's value from a git repository}
 \usage{
-tar_read_version(
-  name,
-  ref = "HEAD",
-  repo = ".",
-  store = targets::tar_path_store()
-)
+tar_read_version(name, ref = "HEAD", repo = ".", store = NULL)
 
 tar_read_raw_version(name, ref = "HEAD", repo = ".", store = NULL)
 }
 \arguments{
-\item{name}{Name of the target. \code{tar_read_version()} can take a symbol, \code{tar_read_raw_version()} requires a character.}
+\item{name}{Name of the target. \code{tar_read_version()} can take a symbol,
+\code{tar_read_raw_version()} requires a character.}
 
 \item{ref}{A git commit SHA, tag, branch or other \href{https://git-scm.com/docs/git-rev-parse.html#_specifying_revisions}{revision string}:
-such as "HEAD~1", "main@{2023-02-26 18:30:00}", or "branch@{yesterday}".
-Can also be a \code{\link[git2r:commit]{git2r::commit()}} object. For S3 buckets, a VersionID.
-Defaults to "HEAD", which also means the latest version in an S3 bucket.}
+such as \code{"HEAD~1"}, \code{"main@{2023-02-26 18:30:00}"}, or
+\code{"branch@{yesterday}"}. Can also be a \code{\link[git2r:commit]{git2r::commit()}} object.  For S3
+buckets, a VersionID. Defaults to "HEAD", which also means the latest
+version in an S3 bucket.}
 
 \item{repo}{The repository to get the file from. This can be a local git
-directory, a GitHub repository (URL or "owner/repo" string), or an S3 bucket
-indicated by "s3://bucket-name". Defaults to the current working directory.}
+directory, a GitHub repository (URL or \code{"owner/repo"} string), or an S3
+bucket indicated by "s3://bucket-name". Defaults to the current working
+directory.}
 
-\item{store}{Path to the targets store within the project. Defaults to \verb{"_targets}, or the current project's \link[targets:tar_path_store]{store name} if \code{repo = "."}.}
+\item{store}{Path to the targets store within the project. Defaults to
+\verb{"_targets}, or the current project's \link[targets:tar_path_store]{store name} if \code{repo = "."}.}
 }
 \value{
-The target's value. If the target is of \code{format = "file"}, this will be the path to the file in the \link[=relic_cache]{relic cache}.
+The target's value. If the target is of \code{format = "file"}, this will
+be the path to the file in the \link[=relic_cache]{relic cache}.
 }
 \description{
-Reads the content of targets from a git repository. Target metadata and
-local target files are extracted into a temporary directory before being
-read in by \code{tar_read()}. For targets of type "file", the files are also
-extracted and the paths to the extracted files are returned.
+Reads the content of targets from a git repository. Target metadata and local
+target files are extracted into a temporary directory before being read in by
+\code{tar_read()}. For targets of type "file", the files are also extracted and
+the paths to the extracted files are returned.
 }
 \details{
-For cloud targets, the target metadata is read from git history and then
-this metadata is used to download the target from the cloud. For this to work,
+For cloud targets, the target metadata is read from git history and then this
+metadata is used to download the target from the cloud. For this to work,
 cloud storage must be set up with versioning. Note that targets metadata
-includes the bucket, endpoint, and region of a S3-stored target, but you must still
-provide an AWS access key and secret as environment variables. If these differ
-from the credentials used for your current project or environment, can use
-\code{\link[withr:with_envvar]{withr::with_envvar()}} to temporarily set the credentials.
+includes the bucket, endpoint, and region of a S3-stored target, but you must
+still provide an AWS access key and secret as environment variables. If these
+differ from the credentials used for your current project or environment, can
+use \code{\link[withr:with_envvar]{withr::with_envvar()}} to temporarily set the credentials.
 }

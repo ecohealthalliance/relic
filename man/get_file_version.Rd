@@ -16,23 +16,25 @@ get_file_version(
 \item{path}{Path of a file relative to the git directory or bucket}
 
 \item{ref}{A git commit SHA, tag, branch or other \href{https://git-scm.com/docs/git-rev-parse.html#_specifying_revisions}{revision string}:
-such as "HEAD~1", "main@{2023-02-26 18:30:00}", or "branch@{yesterday}".
-Can also be a \code{\link[git2r:commit]{git2r::commit()}} object. For S3 buckets, a VersionID.
-Defaults to "HEAD", which also means the latest version in an S3 bucket.}
+such as \code{"HEAD~1"}, \code{"main@{2023-02-26 18:30:00}"}, or
+\code{"branch@{yesterday}"}. Can also be a \code{\link[git2r:commit]{git2r::commit()}} object.  For S3
+buckets, a VersionID. Defaults to "HEAD", which also means the latest
+version in an S3 bucket.}
 
 \item{repo}{The repository to get the file from. This can be a local git
-directory, a GitHub repository (URL or "owner/repo" string), or an S3 bucket
-indicated by "s3://bucket-name". Defaults to the current working directory.}
+directory, a GitHub repository (URL or \code{"owner/repo"} string), or an S3
+bucket indicated by "s3://bucket-name". Defaults to the current working
+directory.}
 
 \item{endpoint, region}{For S3 buckets, the endpoint and region of the bucket.
-If NULL, the default endpoint and region in local config or environment variables are used.
-(Usually \code{us-east-1} and \code{s3.amazonaws.com}.)}
+If NULL, the default endpoint and region in local config or environment
+variables are used. (Usually \code{us-east-1} and \code{s3.amazonaws.com}.)}
 }
 \value{
-A \link[fs:path]{path} to the file in the local cache.
+A \link[fs:fs_path]{path} to the file in the local cache.
 }
 \description{
 Fetches the contents of a file from a versioned repository - a local git
-repository, a GitHub repository, or an S3 bucket. Always fetches the file
-to a local cache and returns the path to it.
+repository, a GitHub repository, or an S3 bucket. Always fetches the file to
+a local cache and returns the path to it.
 }
