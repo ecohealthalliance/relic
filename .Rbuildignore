@@ -6,7 +6,7 @@
 ^LICENSE\.md$
 ^CITATION\.cff$
 ^codemeta.json$
-^.lintr$
+^\.lintr$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
@@ -16,3 +16,5 @@
 ^check$
 ^artifacts$
 ^logo.png$
+^\.env$
+^\.git-crypt$
