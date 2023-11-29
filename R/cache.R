@@ -32,7 +32,7 @@ relic_cache_delete <- function() {
 #'   `options("relic.cache.max.age")`, which take numeric time in days or a
 #'   string with units, e.g., "1 day" or "2 weeks".
 #' @param max_size The maximum size of the cache, as a string that can be parsed
-#'   by [fs::fs_bytes()].  Defaults to "20 MB".  Can be set with the environment
+#'   by [fs::fs_bytes()].  Defaults to "100 GB".  Can be set with the environment
 #'   variable `RELIC_CACHE_MAX_SIZE` or `options("relic.cache.max.size")`.
 #'   Cached files will be deleted from oldest to youngest until the cache size
 #'   is under this limit.
@@ -84,7 +84,7 @@ relic_cache_max_size <- function() {
   fs_bytes(Sys.getenv(
     "RELIC_CACHE_MAX_SIZE",
     getOption("relic.cache.max.size",
-      default = "20 MB"
+      default = "100 GB"
     )
   ))
 }
