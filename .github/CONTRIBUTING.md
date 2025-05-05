@@ -32,6 +32,13 @@ with S3 cloud storage, a MinIO server is run in the background to serve as an
 S3 API endpoint.  You will need the `minio` command line tool installed as well
 as the `mc` MinIO client.
 
+For testing against the GitHub API, repositories are generated and deleted.  This
+requires a fine-grained GitHub personal access token with `administration`, `contents`, and `commit statuses` scopes.
+This is set as the environment variable `RELIC_TESTING_GITHUB_PAT`, and the organization
+under which to create repositories is set as `RELIC_TESTING_GITHUB_ORG`.  In the
+absence of these, GitHub API tests will be skipped. These are available in the
+encrypted `.env` file, which is secured by [`git-crypt`](https://www.agwa.name/projects/git-crypt/)
+
 ## Lifecycle Statement
 
 `relic` is a new package and its API is still under development.

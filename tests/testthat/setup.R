@@ -1,5 +1,17 @@
-withr::local_envvar(
-  "R_USER_CACHE_DIR" = tempdir()
+# Read in credentials if the file is unencrypted
+env_file <- fs::path(rprojroot::find_root(rprojroot::is_r_package), ".env")
+if (file.exists(env_file)) {
+  x <- try(readRenviron(env_file), silent = TRUE)
+  if (!inherits(x, "try-error")) {
+    Sys.setenv("GITHUB_PAT" = Sys.getenv("RELIC_TESTING_GITHUB_PAT"))
+  }
+}
+
+# Set a temporary location for the cache
+withr::local_envvar(list(
+  "R_USER_CACHE_DIR" = tempdir(),
+  "RELIC_TESTING_GITHUB_PAT" = Sys.getenv("RELIC_TESTING_GITHUB_PAT"),
+  "GITHUB_PAT" = Sys.getenv("RELIC_TESTING_GITHUB_PAT"))
 )
 
 ## Run a MinIO server in the background to test S3 object storage with `targets`
